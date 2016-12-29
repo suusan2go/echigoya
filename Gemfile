@@ -21,6 +21,8 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'rails_best_practices'
+  gem 'rubocop'
   gem 'rspec-rails'
   gem 'tapp'
 end
