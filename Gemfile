@@ -15,11 +15,13 @@ gem 'coffee-rails', '~> 4.2'
 group :development, :test do
   gem 'awesome_print'
   gem 'byebug', platform: :mri
+  gem 'factory_girl'
   gem 'pry-awesome_print'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'rspec-rails'
   gem 'tapp'
 end
 
