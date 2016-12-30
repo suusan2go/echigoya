@@ -1,11 +1,17 @@
-const webpack = require('webpack')
+const webpack = require('webpack');
+const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: `${__dirname}/client/app.js`,
+  entry: [
+    'webpack/hot/dev-server',
+    'babel-polyfill',
+    `${__dirname}/client/AppRouter.jsx`,
+  ],
   output: {
     path: `${__dirname}/public/assets`,
-    filename: '[name]-[hash].js'
+    filename: 'bundle.js',
+    publicPath: 'http://localhost:3500/assets/',
   },
   devtool: 'source-map',
   plugins: [
@@ -49,5 +55,9 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.js.jsx', '.css', '.scss'],
     root: path.resolve(__dirname, 'frontend'),
+  },
+  devServer: {
+    host: '0.0.0.0',
+    headers: { 'Access-Control-Allow-Origin': 'http://localhost:3000', 'Access-Control-Allow-Credentials': 'true' },
   },
 };

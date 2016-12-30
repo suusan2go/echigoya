@@ -5,6 +5,10 @@
   "repository": "git@github.com:suzan2go/echigoya.git",
   "author": "suzan2go <ksuzuki180@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "watch": "NODE_ENV=development webpack -w",
+    "hot": "NODE_ENV=development webpack-dev-server --hot --inline --progress --profile --colors --port 3500"
+  },
   "dependencies": {
     "babel-core": "6.21.0",
     "babel-loader": "6.2.10",
@@ -22,6 +26,7 @@
     "react": "15.4.1",
     "react-dom": "15.4.1",
     "react-redux": "5.0.1",
+    "react-router": "^3.0.0",
     "redux": "3.6.0",
     "redux-form": "6.4.2",
     "redux-logger": "2.7.4",
