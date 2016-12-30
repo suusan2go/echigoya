@@ -43,3 +43,10 @@ bower.json
 
 # Ignore Direnv
 .envrc
+
+# node
+node_modules/
+yarn-error.log
+
+# swap files
+**.swp
