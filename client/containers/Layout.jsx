@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
+import Header from '../components/layouts/Header';
 
 class Layout extends React.Component {
   render() {

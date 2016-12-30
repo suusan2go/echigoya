@@ -3,7 +3,8 @@ import { createStore } from 'redux';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import App from './App';
+import App from './components/App';
+import Gift from './components/Gift';
 import Layout from './containers/Layout';
 import reducers from './reducers';
 
@@ -12,6 +13,7 @@ const AppRouter = ({ store }) => (
     <Router history={browserHistory}>
       <Route path="/" component={Layout}>
         <IndexRoute component={App} />
+        <Route path="/gifts" component={Gift} />
       </Route>
     </Router>
   </Provider>
