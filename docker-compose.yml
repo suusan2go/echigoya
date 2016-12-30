@@ -51,7 +51,7 @@ services:
     build:
       context: ./
       dockerfile: ./docker/rails/Dockerfile
-    command: bundle exec puma -C config/puma.rb
+    command: bundle exec rails s  -b 0.0.0.0
     volumes:
       - ./app:/app/app
       - ./bin:/app/bin
@@ -64,6 +64,7 @@ services:
       - ./public:/app/public
       - ./Rakefile:/app/Rakefile
       - ./scripts:/app/scripts
+      - ./log:/app/log
       - bundle:/bundle
     ports:
       - "3000:3000"

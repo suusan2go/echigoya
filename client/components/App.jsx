@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container grid-960">
         <Helmet title="Home page" />
         <Link to="/gifts">
           Hello React HMR !!!!!!!!

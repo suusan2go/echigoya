@@ -3,10 +3,10 @@ import { createStore } from 'redux';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import App from './components/App';
-import Gift from './components/Gift';
-import Layout from './containers/Layout';
-import reducers from './reducers';
+import App from 'components/App';
+import Gift from 'components/Gift';
+import Layout from 'containers/Layout';
+import reducers from 'reducers';
 
 const AppRouter = ({ store }) => (
   <Provider store={store}>

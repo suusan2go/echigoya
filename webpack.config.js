@@ -27,8 +27,8 @@ module.exports = {
         loaders: ['babel'],
       },
       {
-        test: /\.(scss|css)$/,
-        loader: process.env.NODE_ENV ? 'style!css?modules' : ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+        test: /\.(scss|css|less)$/,
+        loader: process.env.NODE_ENV ? 'style!css?modules!less!' : ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader!less-loader'),
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
@@ -54,7 +54,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.js.jsx', '.css', '.scss'],
-    root: path.resolve(__dirname, 'frontend'),
+    root: path.resolve(__dirname, 'client'),
   },
   devServer: {
     host: '0.0.0.0',
