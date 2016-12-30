@@ -28,7 +28,7 @@ module.exports = {
       },
       {
         test: /\.(scss|css)$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+        loader: process.env.NODE_ENV ? 'style!css?modules' : ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
