@@ -1,0 +1,22 @@
+{
+  "extends": "airbnb",
+  "settings": {
+    "import/resolver": {
+      "webpack":{
+         "config": 'webpack.config.js'
+      }
+    }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      experimentalObjectRestSpread: true,
+    }
+  },
+  "globals": {
+    "document": true,
+    "window": true,
+  },
+  "rules": {
+    "no-underscore-dangle": 'off'
+  }
+}
