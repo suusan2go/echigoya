@@ -1,30 +1,18 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { createStore } from 'redux';
-import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import App from 'components/App';
-import Gift from 'components/Gift';
-import Layout from 'containers/Layout';
+import { Router, browserHistory } from 'react-router';
+import { renderReact } from 'hypernova-react';
 import reducers from 'reducers';
+import routes from 'routes';
 
-const AppRouter = ({ store }) => (
+const store = createStore(reducers);
+const AppRouter = () => (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Layout}>
-        <IndexRoute component={App} />
-        <Route path="/gifts" component={Gift} />
-      </Route>
+      {routes}
     </Router>
   </Provider>
 );
 
-AppRouter.propTypes = {
-  store: PropTypes.object.isRequired, // eslint-disable-line
-};
-
-
-render(
-  <AppRouter store={createStore(reducers)} />,
-  document.getElementById('app-root'),
-);
+export default renderReact('AppRouter', AppRouter);
