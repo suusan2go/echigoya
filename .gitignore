@@ -50,3 +50,6 @@ yarn-error.log
 
 # swap files
 **.swp
+
+# hypernova build
+hypernova/dist
