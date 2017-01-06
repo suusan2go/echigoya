@@ -32,16 +32,14 @@ module.exports = {
         loaders: ['babel'],
       },
       {
-        test: /\.(scss|css)$/,
-        loader: isProduction ? ExtractTextPlugin.extract('style', 'css-loader?modules!sass-loader!') : 'style-loader!css-loader?modules!sass-loader!',
-      },
-      {
-        test: /spectre\.less$/,
+        test: /global\.(css|scss)/,
+        include: [/global/],
         loader: isProduction ? ExtractTextPlugin.extract('style', 'css-loader!less-loader!') : 'style-loader!css-loader!less-loader!',
       },
       {
-        test: /\.(less|css)$/,
-        loader: isProduction ? ExtractTextPlugin.extract('style', 'css-loader?modules!less-loader!') : 'style-loader!css-loader?modules!less-loader!',
+        test: /\.(scss|css)$/,
+        exclude: [/global/],
+        loader: isProduction ? ExtractTextPlugin.extract('style', 'css-loader?modules!sass-loader!') : 'style-loader!css-loader?modules!sass-loader!',
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,

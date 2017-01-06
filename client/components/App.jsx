@@ -6,10 +6,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="container grid-960">
-        <Helmet title="Home page" />
-        <Link to="/gifts">
-          Hello React HMR !!!!!!!!
-        </Link>
+        <div className="columns">
+          <section>
+            <Link to="/gifts">
+              Hello React HMR !!!!!!!!
+            </Link>
+            <Link to="/gifts">
+              Hello React HMR !!!!!!!!
+            </Link>
+          </section>
+        </div>
       </div>
     );
   }

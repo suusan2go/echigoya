@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import '!style-loader!css-loader!less-loader!spectre.css/spectre.less'; // eslint-disable-line
+import './global.scss'; // eslint-disable-line
 import Header from 'components/layouts/Header';
-import styles from './layout.scss';
 
 class Layout extends React.Component {
   render() {
     return (
-      <div className={styles.wrapper}>
+      <div className="wrapper">
         <Header />
         {this.props.children}
       </div>

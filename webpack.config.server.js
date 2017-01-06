@@ -27,11 +27,13 @@ module.exports = {
         loaders: ['babel'],
       },
       {
-        test: /\.(less|css)$/,
-        loader: ExtractTextPlugin.extract('style', 'css-loader?modules!less-loader!'),
+        test: /global\.(css|scss)$/,
+        include: [/global/],
+        loader: ExtractTextPlugin.extract('style', 'css-loader!less-loader!'),
       },
       {
         test: /\.(scss|css)$/,
+        exclude: [/global/],
         loader: ExtractTextPlugin.extract('style', 'css-loader?modules!sass-loader!'),
       },
       {

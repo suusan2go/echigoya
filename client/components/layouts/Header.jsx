@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import styles from './header.scss';
+import GiffyLogo from 'images/giffy.png'
 
 class Header extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class Header extends React.Component {
         <header className={'navbar'}>
           <section className="navbar-section">
             <Link to="/" className="navbar-brand">
-              <i className="icon icon-pages" /> Spectre.css
+              <img src={GiffyLogo} className={styles.header_logo}/>
             </Link>
             <Link to="/gifts" className="btn btn-link">features</Link>
           </section>
