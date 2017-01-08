@@ -1,0 +1,24 @@
+language: none
+
+build:
+  pre_ci_boot:
+    options: "-v $SHIPPABLE_BUILD_DIR:$SHIPPABLE_BUILD_DIR"
+  ci:
+    - pip install -U docker-compose
+    - docker-compose build
+    - docker-compose run --rm puma bundle install
+    - docker-compose up -d
+    - sleep 10 # wait postgres to up
+    - docker-compose run --rm puma bundle exec rake db:setup
+    - docker-compose run --rm puma bundle exec rake spec
+integrations:
+  notifications:
+    - integrationName: echigoya-slack
+      type: slack
+      recipients:
+        - "#general"
+    - integrationName: email
+      type: email
+      on_success: never
+      on_failure: never
+      on_pull_request: never
