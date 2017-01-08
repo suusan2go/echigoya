@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: postgres
+  host: <%= ENV.fetch("ECHIGOYA_DATABASE_URL") { 'postgres' } %>
   username: postgres
   password: password
   # For details on connection pooling, see rails configuration guide

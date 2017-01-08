@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -14,15 +16,31 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/public/assets`,
-    filename: '[name].js',
-    publicPath: 'http://localhost:3500/assets/',
+    filename: '[name]-[hash].js',
+    publicPath: isProduction ? '/assets' : 'http://localhost:3500/assets/',
   },
   devtool: 'source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
-    isProduction && new ExtractTextPlugin('styles.css'),
+    new ManifestPlugin({
+      fileName: 'webpack-manifest.json',
+    }),
+    isProduction && new ExtractTextPlugin('style-[hash].css'),
+    isProduction && new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+      sourceMap: true,
+    }),
+    isProduction && new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.html$|\.css$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
   ].filter(Boolean),
   module: {
     loaders: [
