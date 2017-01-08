@@ -11,3 +11,6 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 ENV BUNDLE_PATH /bundle
+COPY . /app
+
+RUN bundle install --jobs=4 --path=/bundle
