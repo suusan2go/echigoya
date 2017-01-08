@@ -7,10 +7,21 @@ build:
     - pip install -U docker-compose
     - docker-compose build
     - docker-compose run --rm puma bundle install
+    - docker-compose run --rm webpack-client yarn
+    - docker-compose run --rm webpack-server yarn prod:server
+    - docker-compose run --rm webpack-client yarn prod:client
     - docker-compose up -d
     - sleep 10 # wait postgres to up
     - docker-compose run --rm puma bundle exec rake db:setup
     - docker-compose run --rm puma bundle exec rake spec
+  post_ci:
+    - docker-compose build hypernova
+    - docker build -f ./docker/node/Dockerfile -t 162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/puma:$BUILD_NUMBER .
+  push:
+    - echo $BRANCH
+    - if [ "$IS_PULL_REQUEST" = "false" ] && [ "$BRANCH" = "master" ]; then docker tag echigoya_hypernova:latest 162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/hypernova:$BUILD_NUMBER; fi
+    - if [ "$IS_PULL_REQUEST" = "false" ] && [ "$BRANCH" = "master" ]; then docker push 162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/puma:$BUILD_NUMBER; fi
+    - if [ "$IS_PULL_REQUEST" = "false" ] && [ "$BRANCH" = "master" ]; then docker push 162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/hypernova:$BUILD_NUMBER; fi
 integrations:
   notifications:
     - integrationName: echigoya-slack
@@ -22,3 +33,10 @@ integrations:
       on_success: never
       on_failure: never
       on_pull_request: never
+  hub:
+    - integrationName: echigoya-ecr
+      type: ecr
+      region: ap-northeast-1
+      branches:
+        only:
+          - master
