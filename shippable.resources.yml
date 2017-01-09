@@ -32,6 +32,7 @@ resources:
         - puma
         - -C
         - config/puma.rb
+      workingDir: /app
 
   - name: puma-image-params
     type: params

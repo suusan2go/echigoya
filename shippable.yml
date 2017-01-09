@@ -39,6 +39,9 @@ integrations:
         - versionName=$BUILD_NUMBER
       on_success: always
       on_failure: never
+      branches:
+        only:
+          - master
   hub:
     - integrationName: echigoya-ecr
       type: ecr
