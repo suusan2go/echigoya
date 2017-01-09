@@ -12,3 +12,4 @@ jobs:
       - IN: puma-image-params
       - IN: staging-cluster
       - TASK: managed
+        deployMethod: upgrade
