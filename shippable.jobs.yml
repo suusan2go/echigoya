@@ -1,0 +1,14 @@
+jobs:
+  - name: puma-manifest
+    type: manifest
+    steps:
+      - IN: puma-image
+      - IN: puma-image-options
+      - TASK: managed
+  - name: deploy-to-staging
+    type: deploy
+    steps:
+      - IN: puma-manifest
+#      - IN: dv-params
+      - IN: staging-cluster
+      - TASK: managed

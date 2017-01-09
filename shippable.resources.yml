@@ -1,6 +1,6 @@
 resources:
 
-  - name: puma
+  - name: puma-image
     type: image
     integration: echigoya-ecr
     pointer:
@@ -10,7 +10,7 @@ resources:
     #seed:
     #  versionName: master.1
 
-  - name: hypernova
+  - name: hypernova-image
     type: image
     integration: echigoya-ecr
     pointer:
@@ -20,7 +20,7 @@ resources:
     #seed:
     #  versionName: master.1
 
-  - name: puma-opts
+  - name: puma-image-options
     type: dockerOptions
     version:
       memory: 256
@@ -29,7 +29,7 @@ resources:
         - 80:3000
       publishAllPorts : true
 
-  - name: puma-params
+  - name: puma-image-params
     type: params
     version:
       params:
