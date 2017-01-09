@@ -5,17 +5,15 @@ resources:
     integration: echigoya-ecr
     pointer:
       sourceName: "162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/puma"
-      isPull: false
     #make sure this seed version exists in your registry account
-    #seed:
-    #  versionName: master.1
+    seed:
+      versionName: master.1
 
   - name: hypernova-image
     type: image
     integration: echigoya-ecr
     pointer:
       sourceName: "162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/hypernova"
-      isPull: false
     #make sure this seed version exists in your registry account
     #seed:
     #  versionName: master.1
