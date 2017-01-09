@@ -1,0 +1,44 @@
+resources:
+
+  - name: puma
+    type: image
+    integration: echigoya-ecr
+    pointer:
+      sourceName: "162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/puma"
+      isPull: false
+    #make sure this seed version exists in your registry account
+    #seed:
+    #  versionName: master.1
+
+  - name: hypernova
+    type: image
+    integration: echigoya-ecr
+    pointer:
+      sourceName: "162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/hypernova"
+      isPull: false
+    #make sure this seed version exists in your registry account
+    #seed:
+    #  versionName: master.1
+
+  - name: puma-opts
+    type: dockerOptions
+    version:
+      memory: 256
+      cpuShares: 256
+      portMappings:
+        - 80:3000
+      publishAllPorts : true
+
+  - name: puma-params
+    type: params
+    version:
+      params:
+        RAILS_ENV: production
+        RAICK_ENV: production
+
+  - name: staging-cluster
+    type: cluster
+    integration: deploy-to-ecs
+    pointer:
+      sourceName : giffy-staging
+      region: ap-northeast-1
