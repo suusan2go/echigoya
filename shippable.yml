@@ -33,6 +33,12 @@ integrations:
       on_success: never
       on_failure: never
       on_pull_request: never
+    - integrationName: ImageEventTrigger
+      type: webhook
+      payload:
+        - versionName=$BUILD_NUMBER
+      on_success: always
+      on_failure: never
   hub:
     - integrationName: echigoya-ecr
       type: ecr
