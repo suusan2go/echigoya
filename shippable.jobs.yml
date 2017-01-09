@@ -9,6 +9,6 @@ jobs:
     type: deploy
     steps:
       - IN: puma-manifest
-#      - IN: dv-params
+      - IN: puma-image-params
       - IN: staging-cluster
       - TASK: managed
