@@ -5,7 +5,7 @@ jobs:
       - IN: puma-image
       - IN: puma-image-options
       - TASK: managed
-  - name: deploy-to-staging
+  - name: deploy-to-staging-puma
     type: deploy
     steps:
       - IN: puma-manifest

@@ -26,6 +26,12 @@ resources:
       portMappings:
         - 80:3000
       publishAllPorts : true
+      cmd:
+        - bundle
+        - exec
+        - puma
+        - -C
+        - config/puma.rb
 
   - name: puma-image-params
     type: params
