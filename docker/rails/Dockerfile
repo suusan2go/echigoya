@@ -12,3 +12,4 @@ RUN apt-get update \
 
 ENV BUNDLE_PATH /bundle
 COPY . /app
+RUN bundle install --jobs=4 --path=/bundle
