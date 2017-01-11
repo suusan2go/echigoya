@@ -43,6 +43,7 @@ resources:
       params:
         RAILS_ENV: production
         RAICK_ENV: production
+        secure: G0VrJ3grFX5knOAZw27q+IXSABFhf/xBXojE4bIhWMb63IqvWz+0MhWWFlqUDNNmiQ4nKxaptICqUWrgYvsqzWnwURopvO1bOaYg6aX4wFac8gw5mHIHyF+qvVyvI55CY5diLv4jJuXA2dS1E6KvKUx4Ydd/i53vs1gwPOTa1owlnCMjdwQN4FlMK4VX7fkSKaQDpnPUDBUOIYxyic1vMFABsXrxYB6P9WkSewTPE9p0KcYgxy8LbzkD95yDDvI50uDpLlYqQlnN+MxUYrslxo6xXAjmfcvFEMFVNiwImFFZvPPlLd6XFvWmexKysbGzu+9iZ1wD7olFxMXNgNqNWQ==
 
   - name: staging-cluster
     type: cluster
