@@ -5,12 +5,16 @@ resources:
     integration: echigoya-ecr
     pointer:
       sourceName: "162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/puma"
+    seed:
+      versionName: latest
 
   - name: hypernova-image
     type: image
     integration: echigoya-ecr
     pointer:
       sourceName: "162244557705.dkr.ecr.ap-northeast-1.amazonaws.com/giffy/hypernova"
+    seed:
+      versionName: latest
 
   - name: puma-image-options
     type: dockerOptions
