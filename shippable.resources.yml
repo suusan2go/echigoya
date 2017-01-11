@@ -51,3 +51,10 @@ resources:
     pointer:
       sourceName : giffy-staging
       region: ap-northeast-1
+
+  - name: staging-loadbalancer
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-northeast-1:162244557705:targetgroup/giffy-staging-group/f2548a89a9e951aa"
+      method: application
+      role: ecsServiceRole

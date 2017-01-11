@@ -11,5 +11,6 @@ jobs:
       - IN: puma-manifest
       - IN: puma-image-params
       - IN: staging-cluster
+      - IN: staging-loadbalancer
       - TASK: managed
         deployMethod: upgrade
