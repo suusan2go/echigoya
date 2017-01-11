@@ -22,7 +22,7 @@ resources:
       memory: 256
       cpuShares: 256
       portMappings:
-        - 80:3000
+        - 0:3000
       publishAllPorts : true
       cmd:
         - bundle
