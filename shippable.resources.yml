@@ -36,6 +36,7 @@ resources:
         options:
           awslogs-group: giffy-staging-puma
           awslogs-region: ap-northeast-1
+          awslogs-stream-prefix: giffy-puma
 
   - name: puma-image-params
     type: params
