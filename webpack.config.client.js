@@ -16,7 +16,7 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/public/assets`,
-    filename: '[name]-[hash].js',
+    filename: isProduction ? '[name]-[hash].js' : '[name].js',
     publicPath: isProduction ? '/assets' : 'http://localhost:3500/assets/',
   },
   devtool: 'source-map',
@@ -27,7 +27,7 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'webpack-manifest.json',
     }),
-    isProduction && new ExtractTextPlugin('style-[hash].css'),
+    isProduction && new ExtractTextPlugin(isProduction ? '[name]-[hash].css' : '[name].css'),
     isProduction && new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
