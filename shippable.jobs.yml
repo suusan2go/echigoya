@@ -14,7 +14,7 @@ jobs:
       - IN: staging-loadbalancer
         applyTo:
           - manifest: puma-manifest
-          - image: puma-image
-          - port: 3000
+            image: puma-image
+            port: 3000
       - TASK: managed
         deployMethod: upgrade
